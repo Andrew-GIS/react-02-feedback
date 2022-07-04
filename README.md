@@ -84,7 +84,7 @@
 обязательны.
 
 ```jsx
-<BrowserRouter basename="/your_repo_name/">
+<BrowserRouter basename="/https://github.com/andrew-gis/react-02-feedback/">
   <App />
 </BrowserRouter>
 ```
