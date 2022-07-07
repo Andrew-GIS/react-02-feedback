@@ -1,7 +1,7 @@
 import { StatisticField, StatisticHeader, StatisticList, StatisticItem } from './Statistic.styled';
 import propTypes from 'prop-types';
 
-export const StatisticBox = ({good, neutral, bad, total, positiveFeedbacks}) => {
+const StatisticBox = ({good, neutral, bad, total, positiveFeedbacks}) => {
 	return (
 		<StatisticField>
 			<StatisticHeader>Statistic</StatisticHeader>
@@ -33,3 +33,5 @@ StatisticBox.prototype = {
 	positiveFeedbacks: propTypes.number.isRequired,
 	category: propTypes.string,
 }
+
+export default StatisticBox;

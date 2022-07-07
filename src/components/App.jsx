@@ -1,7 +1,7 @@
 import { Component } from 'react';
-import { FeedbackButtons } from './feedbackButtons/FeedbackOptions';
-import { StatisticBox } from './statistic/Statistic';
-import { Notification } from './Notification/Notification';
+import  FeedbackButtons from './feedbackButtons';
+import StatisticBox from './statistic';
+import  Notification from './Notification';
 import { Section } from './section/Section';
 
 export class App extends Component{
@@ -54,14 +54,17 @@ export class App extends Component{
     return (
       <>
         {/* <Section title='Please leave feedback' children={this.props.children}> */}
+        <section>
           <FeedbackButtons
             options={options}
-            onLeaveFeedback={this.handleFeedback}/>
+            onLeaveFeedback={this.handleFeedback} />
+          </section>
         {/* </Section> */}
         {/* <Section title='Please leave feedback' children={StatisticBox}> */}
         <section>
-          {this.countTotalFeedback() === 0 ? (<Notification message='No feedback given'/>) :
-            (<StatisticBox
+          {this.countTotalFeedback() === 0
+            ? (<Notification message='No feedback given' />)
+            :(<StatisticBox
               good={this.state.good}
               bad={this.state.bad}
               neutral={this.state.neutral}
