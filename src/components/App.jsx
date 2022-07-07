@@ -1,13 +1,13 @@
 import { Component } from 'react';
-import { FeedbackButtons } from './feedbackButtons/feedbeackBtns';
-import { StatisticBox } from './statistic/statistic';
+import { FeedbackButtons } from './feedbackButtons/FeedbackOptions';
+import { StatisticBox } from './statistic/Statistic';
+import { Notification } from './Notification/Notification';
+import { Section } from './section/Section';
 
 export class App extends Component{
-  static defaultProps = {
-    good: 0,
-    neutral: 0,
-    bad: 0,
-  };
+  // static defaultProps = {
+  //   positiveFeedbacks: 0,
+  // };
 
   state = {
     good: 0,
@@ -30,15 +30,45 @@ export class App extends Component{
       console.log('object :>> ', prevState);
       return { [value]: prevState[value] + 1 };
     });
-   };
+  };
+  
+  countTotalFeedback = () => {
+    const feedbackSum = this.state.good + this.state.neutral + this.state.bad;
+    return feedbackSum;
+  }
+
+  countPositiveFeedbackPercentage = () => {
+    const feedbackSum = this.state.good + this.state.neutral + this.state.bad;
+    console.log('feedbackSum :>> ', feedbackSum);
+    const goodFedbacksNumber = this.state.good;
+    console.log('goodFedbacksNumber :>> ', goodFedbacksNumber);
+    const positiveFeedbacksPersents = Math.round( goodFedbacksNumber / feedbackSum*100 );
+    return positiveFeedbacksPersents;
+  }
 
   render() {
     const options = Object.keys(this.state);
+    const posFedbacks = this.countPositiveFeedbackPercentage();
+    // this.countPositiveFeedbackPercentage();
+    console.log('posFedbacks :>> ', posFedbacks);
     return (
       <>
-        <h1 >Leave your feedback</h1>
-        <FeedbackButtons options={options} onLeaveFeedback={this.handleFeedback}/>
-        <StatisticBox good={this.state.good} bad={this.state.bad} neutral={this.state.neutral} />
+        {/* <Section title='Please leave feedback' children={this.props.children}> */}
+          <FeedbackButtons
+            options={options}
+            onLeaveFeedback={this.handleFeedback}/>
+        {/* </Section> */}
+        {/* <Section title='Please leave feedback' children={StatisticBox}> */}
+        <section>
+          {this.countTotalFeedback() === 0 ? (<Notification message='No feedback given'/>) :
+            (<StatisticBox
+              good={this.state.good}
+              bad={this.state.bad}
+              neutral={this.state.neutral}
+              total={this.countTotalFeedback()}
+              positiveFeedbacks={(Number.isNaN(posFedbacks) || 0) ? 0 : posFedbacks} />)}
+          </section>
+          {/* </Section> */}
       </>
       )
   }
