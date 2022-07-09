@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/andrew-gis/react-02-feedback/static/css/main.7acaea2f.css",
-    "main.js": "/andrew-gis/react-02-feedback/static/js/main.a22056aa.js",
+    "main.js": "/andrew-gis/react-02-feedback/static/js/main.1855573a.js",
     "index.html": "/andrew-gis/react-02-feedback/index.html",
     "main.7acaea2f.css.map": "/andrew-gis/react-02-feedback/static/css/main.7acaea2f.css.map",
-    "main.a22056aa.js.map": "/andrew-gis/react-02-feedback/static/js/main.a22056aa.js.map"
+    "main.1855573a.js.map": "/andrew-gis/react-02-feedback/static/js/main.1855573a.js.map"
   },
   "entrypoints": [
     "static/css/main.7acaea2f.css",
-    "static/js/main.a22056aa.js"
+    "static/js/main.1855573a.js"
   ]
 }
