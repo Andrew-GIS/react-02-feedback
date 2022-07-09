@@ -7,7 +7,6 @@ export const StatisticField = styled.div`
 	align-items: center;
 	margin-left: ${p => `${p.theme.spacing(10)}`};
 	margin-right: ${p => `${p.theme.spacing(10)}`};
-	// background-color: ${p => p.theme.colors.blue};
 	`;
 
 export const StatisticHeader = styled.h2`

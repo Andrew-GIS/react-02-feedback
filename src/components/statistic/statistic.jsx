@@ -1,10 +1,9 @@
-import { StatisticField, StatisticHeader, StatisticList, StatisticItem } from './Statistic.styled';
+import { StatisticField, StatisticList, StatisticItem } from './Statistic.styled';
 import propTypes from 'prop-types';
 
 const StatisticBox = ({good, neutral, bad, total, positiveFeedbacks}) => {
 	return (
 		<StatisticField>
-			<StatisticHeader>Statistic</StatisticHeader>
 			<StatisticList>
 				<StatisticItem category="good">
 					<p>Good</p><span>{good}</span>

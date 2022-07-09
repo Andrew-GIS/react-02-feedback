@@ -1,10 +1,8 @@
-import {FeedbackTitle, Button , ButtonBox , ButtonReset} from "./FeedbackOptions.styled";
+import {Button , ButtonBox , ButtonReset} from "./FeedbackOptions.styled";
 import propTypes from 'prop-types';
 
 const FeedbackButtons = ({options, onLeaveFeedback, category}) => {
 	return (
-		<>
-			<FeedbackTitle>Leave your feedback</FeedbackTitle>
 		<ButtonBox>
 			<Button type="button"
 				key={options[0]}
@@ -26,7 +24,6 @@ const FeedbackButtons = ({options, onLeaveFeedback, category}) => {
 				id={options[3]}
 				onClick={onLeaveFeedback}>Reset</ButtonReset>
 		</ButtonBox>
-		</>
 	)
 }
 

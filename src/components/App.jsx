@@ -5,10 +5,6 @@ import  Notification from './Notification';
 import { Section } from './section/Section';
 
 export class App extends Component{
-  // static defaultProps = {
-  //   positiveFeedbacks: 0,
-  // };
-
   state = {
     good: 0,
     neutral: 0,
@@ -22,7 +18,6 @@ export class App extends Component{
       this.setState(
         { good: 0, neutral: 0, bad: 0 }
       );
-      // return `WE ARE ON RESET :>> `;
     }
 
     this.setState(prevState => {
@@ -49,20 +44,18 @@ export class App extends Component{
   render() {
     const options = Object.keys(this.state);
     const posFedbacks = this.countPositiveFeedbackPercentage();
-    // this.countPositiveFeedbackPercentage();
+   
     console.log('posFedbacks :>> ', posFedbacks);
     return (
       <>
-        {/* <Section title='Please leave feedback' children={this.props.children}> */}
-        <section>
+        <Section title='Leave your feedback'>
           <FeedbackButtons
             options={options}
             onLeaveFeedback={this.handleFeedback} />
-          </section>
-        {/* </Section> */}
-        {/* <Section title='Please leave feedback' children={StatisticBox}> */}
-        <section>
-          {this.countTotalFeedback() === 0
+        </Section>
+
+        <Section title='Statistic'>
+            {this.countTotalFeedback() === 0
             ? (<Notification message='No feedback given' />)
             :(<StatisticBox
               good={this.state.good}
@@ -70,9 +63,8 @@ export class App extends Component{
               neutral={this.state.neutral}
               total={this.countTotalFeedback()}
               positiveFeedbacks={(Number.isNaN(posFedbacks) || 0) ? 0 : posFedbacks} />)}
-          </section>
-          {/* </Section> */}
+          </Section>
       </>
-      )
+    )
   }
 }

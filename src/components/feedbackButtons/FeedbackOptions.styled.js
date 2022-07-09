@@ -14,7 +14,6 @@ export const ButtonBox = styled.div`
 	margin-right: ${p => `${p.theme.spacing(10)}`};
 	margin-top: ${p => `${p.theme.spacing(5)}`};
 	margin-bottom: ${p => `${p.theme.spacing(5)}`};
-	// background-color: ${p => p.theme.colors.blue};
 `;
 
 export const Button = styled.button`
@@ -40,7 +39,6 @@ export const Button = styled.button`
 			default: return "white";
 			}
 		}};
-		//  ${p => p.theme.colors.blue};
 		color: ${p => p.theme.colors.white};
 	}
 `;
@@ -48,6 +46,7 @@ export const Button = styled.button`
 export const ButtonReset = styled.button`
 	padding: ${p => `${p.theme.spacing(1)}`};
 	border-radius: 50%;
+	border-width: 0.5px;
 	width: 50px;
 	height: 50px;
 	&:hover{
