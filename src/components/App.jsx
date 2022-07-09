@@ -62,7 +62,7 @@ export class App extends Component{
               bad={this.state.bad}
               neutral={this.state.neutral}
               total={this.countTotalFeedback()}
-              positiveFeedbacks={(Number.isNaN(posFedbacks) || 0) ? 0 : posFedbacks} />)}
+              positiveFeedbacks={(Number.isNaN(posFedbacks) || 0) ? 0 : posFedbacks}/>)}
           </Section>
       </>
     )
