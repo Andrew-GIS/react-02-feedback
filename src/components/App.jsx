@@ -1,6 +1,6 @@
 import { Component } from 'react';
 import  FeedbackButtons from './feedbackButtons';
-import StatisticBox from './statistic';
+import StatisticBox from './Statistic';
 import  Notification from './Notification';
 import { Section } from './section/Section';
 
