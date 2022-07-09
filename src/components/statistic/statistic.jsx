@@ -1,4 +1,4 @@
-import { StatisticField, StatisticList, StatisticItem } from './Statistic.styled';
+import { StatisticField, StatisticList, StatisticItem } from './statistic.styled';
 import propTypes from 'prop-types';
 
 const StatisticBox = ({good, neutral, bad, total, positiveFeedbacks}) => {

@@ -1,8 +1,8 @@
 import { Component } from 'react';
-import  FeedbackButtons from './FeedbackButtons';
-import StatisticBox from './Statistic';
+import  FeedbackButtons from './feedbackButtons';
+import StatisticBox from './statistic';
 import  Notification from './Notification';
-import { Section } from './Section/Section';
+import { Section } from './section/Section';
 
 export class App extends Component{
   state = {
