@@ -11,21 +11,22 @@ export class App extends Component{
     bad: 0,
   }
 
-  handleFeedback = (event) => {
-    const value = event.target.id;
-    if (event.target.id === '') {
-      console.log('WE ARE ON RESET:>> ');
-      this.setState(
+  handleFeedback = (value) => {
+    if (value.target.id === "") {
+      this.reset();
+    }
+    else{
+      this.setState(prevState => {
+      return { [value.target.id]: prevState[value.target.id] + 1 };
+      });
+      }
+  };
+
+  reset = () => {
+    this.setState(
         { good: 0, neutral: 0, bad: 0 }
       );
-    }
-
-    this.setState(prevState => {
-      console.log('WE TABED ON :>> ', event.target.id);
-      console.log('object :>> ', prevState);
-      return { [value]: prevState[value] + 1 };
-    });
-  };
+  }
   
   countTotalFeedback = () => {
     const feedbackSum = this.state.good + this.state.neutral + this.state.bad;
@@ -34,9 +35,7 @@ export class App extends Component{
 
   countPositiveFeedbackPercentage = () => {
     const feedbackSum = this.state.good + this.state.neutral + this.state.bad;
-    console.log('feedbackSum :>> ', feedbackSum);
     const goodFedbacksNumber = this.state.good;
-    console.log('goodFedbacksNumber :>> ', goodFedbacksNumber);
     const positiveFeedbacksPersents = Math.round( goodFedbacksNumber / feedbackSum*100 );
     return positiveFeedbacksPersents;
   }
@@ -45,7 +44,6 @@ export class App extends Component{
     const options = Object.keys(this.state);
     const posFedbacks = this.countPositiveFeedbackPercentage();
    
-    console.log('posFedbacks :>> ', posFedbacks);
     return (
       <>
         <Section title='Leave your feedback'>
