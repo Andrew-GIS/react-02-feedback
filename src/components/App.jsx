@@ -12,15 +12,11 @@ export class App extends Component{
   }
 
   handleFeedback = (value) => {
-    if (value.target.id === "") {
-      this.reset();
-    }
-    else{
-      this.setState(prevState => {
-      return { [value.target.id]: prevState[value.target.id] + 1 };
-      });
-      }
-  };
+    //  console.log('value :>> ', value);
+    this.setState(prevState => {
+      return { [ value ]: prevState[ value ] + 1 };
+    });
+  }
 
   reset = () => {
     this.setState(
@@ -49,7 +45,8 @@ export class App extends Component{
         <Section title='Leave your feedback'>
           <FeedbackButtons
             options={options}
-            onLeaveFeedback={this.handleFeedback} />
+            onLeaveFeedback={this.handleFeedback}
+            onReset={this.reset} />
         </Section>
 
         <Section title='Statistic'>

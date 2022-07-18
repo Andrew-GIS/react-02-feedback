@@ -1,28 +1,21 @@
 import {Button , ButtonBox , ButtonReset} from "./FeedbackOptions.styled";
 import propTypes from 'prop-types';
 
-const FeedbackButtons = ({options, onLeaveFeedback, category}) => {
+const FeedbackButtons = ({options, onLeaveFeedback, onReset}) => {
 	return (
 		<ButtonBox>
-			<Button type="button"
-				key={options[0]}
-				id={options[0]}
-					onClick={onLeaveFeedback}
-				category="good">Good</Button>
-			<Button type="button"
-				key={options[1]}
-				id={options[1]}
-					onClick={onLeaveFeedback}
-				category="neutral">Neutral</Button>
-			<Button type="button"
-				key={options[2]}
-				id={options[2]}
-					onClick={onLeaveFeedback}
-				category="bad">Bad</Button>
+			
+			{options.map(option => (
+				<Button type="button"
+					key={option}
+					id={option}
+					onClick={() => onLeaveFeedback(option)}
+					category={option}>{option[0].toUpperCase() + option.slice(1)}</Button>
+			))}
 			< ButtonReset type="button"
 				key={options[3]}
 				id={options[3]}
-				onClick={onLeaveFeedback}>Reset</ButtonReset>
+				onClick={onReset}>Reset</ButtonReset>
 		</ButtonBox>
 	)
 }
